@@ -1,0 +1,73 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.SmartConnect" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/text_white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/grey</item>
+
+        <item name="android:colorBackground">@color/colorPrimaryVariant</item>
+        <item name="colorOnBackground">@color/app_blue</item>
+
+        // Font
+        <item name="fontFamily">@font/roboto_mono_medium</item>
+        <item name="android:fontFamily">@font/roboto_mono_medium</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+
+        <item name="android:textColorPrimary">@color/text_white</item>
+
+        <item name="shapeAppearanceSmallComponent">@style/AppShapeAppearance.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/AppShapeAppearance.MediumComponent</item>
+
+        <item name="materialButtonStyle">@style/AppButton</item>
+
+        <item name="textInputStyle">@style/AppTextField</item>
+
+    </style>
+    <style name="AppTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+<!--        <item name="boxBackgroundColor">@color/app_blue</item>-->
+
+<!--        filled, outline or none.-->
+        <item name="boxBackgroundMode">outline</item>
+<!--        <item name="boxStrokeColor">@color/app_red</item>-->
+        <item name="hintTextColor">@color/app_blue</item>
+<!--        <item name="errorTextColor">@color/app_red</item>-->
+        <item name="counterTextColor">@color/app_red</item>
+    </style>
+
+    <style name="AppButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="backgroundTint">@color/app_blue</item>
+
+        <!--        <item name="strokeColor">@color/app_red</item>-->
+        <!--        <item name="strokeWidth">3dp</item>-->
+        <!--        <item name="iconTint">@color/app_red</item>-->
+        <item name="rippleColor">@color/colorPrimaryVariant</item>
+        <!--        <item name="shapeAppearance">@color/app_blue</item>-->
+    </style>
+
+    <style name="AppShapeAppearance.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="AppShapeAppearance.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+
+    <style name="Theme.FullScreen" parent="@style/Theme.SmartConnect">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>
