@@ -2,10 +2,9 @@ package com.fernando.myprojects.ui.main
 
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import android.view.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fernando.myprojects.R
 import com.fernando.myprojects.adapter.MainAdapter
@@ -16,6 +15,7 @@ import com.fernando.myprojects.helpers.DataProject
 import com.fernando.myprojects.helpers.MarginItemDecoration
 import com.fernando.myprojects.model.ProjectModel
 import javax.inject.Inject
+
 
 class MainFragment @Inject constructor() : BaseFragment(), CellClickListener {
 
@@ -29,6 +29,10 @@ class MainFragment @Inject constructor() : BaseFragment(), CellClickListener {
         // Binding
         binding = FragmentMainBinding.inflate(layoutInflater)
 
+        setHasOptionsMenu(true)
+
+//        findNavController().popBackStack()
+
         return binding.root
     }
 
@@ -36,7 +40,32 @@ class MainFragment @Inject constructor() : BaseFragment(), CellClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initVariables()
 
+    }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_main, menu)
+
+        val searchItem: MenuItem? = menu.findItem(R.id.action_search)
+        val searchView: SearchView = searchItem?.actionView as SearchView
+
+        // Listener for searching rocket by name (Searching View)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.filter.filter(newText)
+                return false
+            }
+        })
+
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     // Initialize variables
