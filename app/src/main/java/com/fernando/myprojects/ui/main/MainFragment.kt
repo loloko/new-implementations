@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fernando.myprojects.R
 import com.fernando.myprojects.adapter.MainAdapter
@@ -40,11 +41,6 @@ class MainFragment @Inject constructor() : BaseFragment(), CellClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initVariables()
 
-    }
-
-    override fun onResume() {
-        super.onResume()
-        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -83,7 +79,7 @@ class MainFragment @Inject constructor() : BaseFragment(), CellClickListener {
 
     override fun onCellClickListener(project: ProjectModel) {
 //        val directions = RocketListFragmentDirections.navigateToRocketDetail(rocket)
-//        findNavController().navigate(directions)
+        findNavController().navigate(project.destination)
     }
 
 }

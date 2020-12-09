@@ -10,6 +10,7 @@ import com.fernando.myprojects.di.main.MainViewModelModule
 import com.fernando.myprojects.ui.auth.LoginFragment
 import com.fernando.myprojects.ui.auth.RegisterFragment
 import com.fernando.myprojects.ui.auth.ResetPasswordFragment
+import com.fernando.myprojects.ui.main.BottomSheetFragment
 import com.fernando.myprojects.ui.main.MainFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -35,4 +36,8 @@ abstract class FragmentModule {
     @MainScope
     @ContributesAndroidInjector(modules = [MainViewModelModule::class, MainModule::class])
     abstract fun contributeMainFragment(): MainFragment
+
+    @MainScope
+    @ContributesAndroidInjector(modules = [MainViewModelModule::class, MainModule::class])
+    abstract fun contributeBottomSheetFragment(): BottomSheetFragment
 }

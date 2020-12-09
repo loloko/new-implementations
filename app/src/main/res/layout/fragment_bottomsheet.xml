@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cat_bottomsheet_coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+    <Button
+        android:id="@+id/bottomsheet_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Show Modal" />
+
+  </RelativeLayout>
+
+  <RelativeLayout
+      android:id="@+id/bottom_drawer"
+      style="@style/Widget.MaterialComponents.BottomSheet"
+      android:layout_width="match_parent"
+      android:layout_height="400dp"
+      android:background="@drawable/bg_rounded_6dp"
+      android:backgroundTint="@color/text_white"
+      app:behavior_hideable="false"
+      app:behavior_peekHeight="100dp"
+      app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="text 1"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/cat_persistent_bottomsheet_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="text 2"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/cat_bottomsheet_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cat_persistent_bottomsheet_state"
+        android:layout_centerHorizontal="true"
+        android:text="some button" />
+
+  </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
